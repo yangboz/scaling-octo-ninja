@@ -1,0 +1,21 @@
+package com.sample.model
+
+import com.sample.model.Account
+
+rule "AccountRulePostive"
+	dialect "mvel"
+	when
+		 $account : Account( balance < 100 )
+	then
+		System.out.println("Warning! money running out!");
+end
+
+rule "AccountRuleNegative"
+	dialect "mvel"
+	when
+		 $account : Account( balance > 100 )
+	then
+		System.out.println("OK! Let money in!");
+end
+
+
